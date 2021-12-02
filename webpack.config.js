@@ -6,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 
 const distPath = path.join(__dirname, '/dist');
 const srcPath = path.join(__dirname, '/src');
@@ -22,18 +22,10 @@ const optimization = () => {
 	}
 
 	if (isProd) {
-		// config.minimizer = [
-		// 	new OptimizeCssAssetsPlugin({
-		// 		assetNameRegExp: /\.css$/g,
-		// 		cssProcessor: require('cssnano'),
-		// 		cssProcessorPluginOptions: {
-		// 			preset: ['default', { discardComments: { removeAll: true } }],
-		// 		},
-		// 		canPrint: true,
-		// 	}),
-		// ]
+		config.minimizer = [
+			new CssMinimizerWebpackPlugin(),
+		]
 	}
-
 	return config
 }
 
@@ -65,11 +57,6 @@ const plugins = () => {
 		new MiniCssExtractPlugin({
 			linkType: 'text/css',
 		}),
-		// new CopyWebpackPlugin({
-		//   patterns: [
-		//     { from: srcPath + '/images', to: distPath },
-		//   ],
-		// }),
 	].concat(htmlPlugins);
 }
 
@@ -140,7 +127,7 @@ const config = {
 		extensions: ['.js'],
 	},
 	plugins: plugins(),
-	// optimization: optimization(),
+	optimization: optimization(),
 	devServer: {
         historyApiFallback: true,
         contentBase: path.resolve(__dirname, './dist'),
