@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const fs = require('fs');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
@@ -159,11 +158,9 @@ const config = {
 			},
 			{
 				test: /\.(png|jpeg|jpg|gif)$/i,
-				use: [
-					{
+				use: [{
 						loader: 'file-loader',
 						options: {
-							esModule: false,
 							name: '[name].[ext]',
 							outputPath: 'images',
 						},
@@ -171,8 +168,7 @@ const config = {
 				],
 			},
 			{
-				test: /\.(woff(2)?|ttf|eot|svg|otf)$/,
-
+				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
 				use: [{
 					loader: 'file-loader',
 					options: {
