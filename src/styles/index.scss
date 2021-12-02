@@ -1,0 +1,26 @@
+@use '_reset.scss'as *;
+@use '_fonts.scss'as *;
+@use '_variables.scss'as *;
+
+body {
+  // overflow-x: hidden;
+  background-color: var(--back);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+span,
+p,
+a,
+div {
+  font-family: 'Oswald', sans-serif;
+  color: var(--color-title);
+}
+
+//-----------------------------------------------------------------
+

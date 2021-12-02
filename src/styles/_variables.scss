@@ -1,0 +1,13 @@
+$back: #1D1D1D;
+$block: #272727;
+$color-title: #FFFF;
+$color-text: #6d6d6d;
+$color-main: #A9983B;
+
+:root[theme="dark"] {
+  --back: #{$back};
+  --block: #{$block};
+  --color-title: #{$color-title};
+  --color-text: #{$color-text};
+  --color-main: #{$color-main};
+}

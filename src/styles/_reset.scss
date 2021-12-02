@@ -1,0 +1,116 @@
+$padding: 30;
+
+$media-sizes: (
+  xs: 0,
+  sm: 280,
+  md: 580,
+  lg: 880,
+  xl: 1180,
+);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  border: 0;
+
+  &::after,
+  &::before {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
+li {
+  list-style-type: none;
+}
+
+span, input, textarea {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-stretch: inherit;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  font-size: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.container {
+  max-width: map_get($media-sizes, "xl") + px;
+  margin: 0 auto;
+  padding: 0 $padding + px;
+}
+
+.ibg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  img {
+    display: none;
+  }
+}
+
+.clearfix::after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 19px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 13px;
+}
+
+h6 {
+  font-size: 11px;
+}
+
+@mixin flexbox() {
+  display: flex;
+  font-size: 0;
+}
+
+@mixin flexboxinline() {
+  display: inline-flex;
+}
